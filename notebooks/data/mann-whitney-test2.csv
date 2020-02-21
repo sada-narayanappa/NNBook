@@ -1,0 +1,36 @@
+# Example From : https://secure.brightstat.com/index.php?p=c&d=1&c=2&i=5
+# 
+# A physician is interested in the effect of an anaesthetic on reaction times. 
+# Two groups are compared, one with (A) and one without (B) taking the anaesthetic. 
+# Subjects had to react on a simple visual stimulus. Reaction times are not normally distributed 
+# in this experiment, so data is analysed with the Mann-Whitney U-Test for ordinal scaled measurements. 
+# The table below shows the rank-ordered data:
+#
+Mean,Group
+131,B
+135,A
+138,B
+138,B
+139,A
+141,B
+142,B
+142,A
+142,B
+143,B
+144,A
+145,B
+156,B
+158,A
+165,A
+167,B
+171,A
+178,A
+191,B
+230,B
+244,A
+245,A
+256,A
+267,A
+268,A
+289,A
+
