@@ -1,0 +1,16 @@
+[START]
+{
+"numericCols"  : ['MSFT_open', 'MSFT_high', 'MSFT_low', 'MSFT_close', 'MSFT_volume', 'MSFT_open_diff1'],
+"addDiffs"     : ['MSFT_open'],
+"scalerString" : [],
+"scale"        : 1, 
+"predictors"   : ['MSFT_-ve', 'MSFT_open', 'MSFT_high', 'MSFT_low', 'MSFT_close', 'MSFT_volume', 'MSFT_+ve__S__0', 'MSFT_+ve__S__1', 'MSFT_+ve__S__2'],
+"outputsCols"  : ['MSFT_open', 'MSFT_open_diff1'],
+"tsParams"     : {"length": 50, "batch_size": 1, "stride": 1, "sampling_rate": 1},
+"predictLength": 5,
+"nsteps"       : 1
+}
+[END]
+
+predictLength is how far to predict the 
+nstep is number of steps => please always make it 1, it makes no sense to predict any further
