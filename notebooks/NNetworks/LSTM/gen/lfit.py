@@ -1,10 +1,6 @@
 #!/usr/local/bin/python 
 
 import matplotlib.pyplot as plt
-%matplotlib inline  
-
-%load_ext autoreload
-%autoreload 2
 
 import re, sys, os, datetime, getopt, glob, argparse, json, base64, pickle
 import pandas as pd
@@ -49,25 +45,28 @@ def getConf(cfile = "myconfig"):
 
     normeddf     = pd.read_csv(trnFile)
     unnormdf     = pd.read_csv(orgFile)
-    train_pct    = conf.get('train_pct', 0.9)
-    traint_count = conf.get('train_count', int(len(normeddf) * train_pct) )
     inputs       = utils1.getConfigList(conf, 'inputs')
     ouputs       = utils1.getConfigList(conf, 'outputs')
+    train_pct    = conf.get('train_pct', 0.9)
+    train_count  = conf.get('train_count', int(len(normeddf) * train_pct) )
+
     print(f'''
     TrnFile: {trnFile},
     I/P    : {inputs[0:4]} ...
     O/P    : {ouputs[0:4]} ...
     Shape  : {normeddf.shape}
-    trnCnt : {traint_count}"
+    trnCnt : {train_count}"
     ''')
     
-    return conf, traint_count, unnormdf, normeddf, inputs, ouputs
+    return conf, unnormdf, normeddf, inputs, ouputs
 
-def getGenerators(conf, normeddf, inputs, oututs):
-    modelFile  = conf['modelFile'] or "models/simpleModel.h5"
-    tsParams   = conf['tsParams']
-    lookahead  = conf['lookahead']
-    history    = tsParams['length']
+def getGenerators(conf, normeddf, inputs, ouputs):
+    modelFile    = conf['modelFile'] or "models/simpleModel.h5"
+    tsParams     = conf['tsParams']
+    lookahead    = conf['lookahead']
+    history      = tsParams['length']
+    train_pct    = conf.get('train_pct', 0.9)
+    train_count  = conf.get('train_count', int(len(normeddf) * train_pct) )
 
     X, y = normeddf[inputs].values, normeddf[ouputs].values
     X=X[:(-lookahead+1) or None]
@@ -120,13 +119,3 @@ def fit(model, trng1, valg1, mcpoint,validation_steps=50, vv =0, ep = 1, spe =20
     model.fit(trng1, verbose=vv, epochs=ep, validation_data=valg1,steps_per_epoch=spe, shuffle=True, 
                         validation_steps=validation_steps, callbacks=[mcpoint])
 
-
-conf, train_count, unnormdf, normeddf, inputs, ouputs    = getConf("exp/myconfig")
-modelFile, history, lookahead, trng1, valg1, valg2, X, y = getGenerators(conf, normeddf, inputs, ouputs)
-
-#Lets keep the model as is
-if "model" not in globals():
-    model, mcpoint = getModel(conf)
-
-fit(model, trng1, valg1, mcpoint, ep=3)
-mcpoint.save_ext()
