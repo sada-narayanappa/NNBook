@@ -1,0 +1,54 @@
+#Getting Configuration from config.1
+#Getting Configuration from config.2
+=>Processing 1/1 ../data/daily_MSFT.csv - standby
++++ Adding open
+writing unnormalized to: daily_MSFT_Orig_0.csv
+writing normalized to. : daily_MSFT_Norm_0.csv
+[START]
+{
+              "file": ['../data/daily_MSFT.csv'],
+       "nrowsXncols": [5033, 6],
+     "number_Unique": 6,
+      "constantCols": [],
+     "#constantCols": 0,
+       "categorCols": [],
+      "#categorCols": 0,
+       "onehotECols": [],
+      "onehotEC_ext": [],
+      "#onehotECols": 0,
+        "binaryCols": [],
+       "#binaryCols": 0,
+       "notNumerics": ['timestamp'],
+   "timeCorrelation": 0.94,
+      "timeCorrCols": [],
+     "#timeCorrCols": 0,
+    "excludePattern": [],
+    "includePattern": [],
+       "dropColumns": [],
+       "diff_suffix": ['__diff1'],
+          "addDiffs": ['open'],
+         "train_pct": 0.9,
+      "#numericCols": 5,
+       "scaleInputs": ['open', 'high', 'low', 'close', 'volume'],
+      "scaleOutputs": ['open___diff1'],
+            "inputs": ['$scaleInputs'],
+           "outputs": ['$scaleOutputs'],
+          "tsParams": {'length': 50, 'batch_size': 1, 'stride': 1, 'sampling_rate': 1},
+      "networkModel": ['NN1 -> Example'],
+         "lookahead": 1,
+            "nsteps": 1,
+             "scale": 1,
+            "scaler": ['sklearn.preprocessing.MinMaxScaler()'],
+     "scalerXString": ['gANjc2tsZWFybi5wcmVwcm9jZXNzaW5nLmRhdGEKTWluTWF4U2NhbGVyCnEAKYFxAX1xAihYDQAAAGZlYXR1cmVfcmFuZ2VxA0sASwGGcQRYBAAAAGNvcHlxBYhYDwAAAG5fc2FtcGxlc19zZWVuX3EGTbARWAYAAABzY2FsZV9xB2NudW1weS5jb3JlLm11bHRpYXJyYXkKX3JlY29uc3RydWN0CnEIY251bXB5Cm5kYXJyYXkKcQlLAIVxCkMBYnELh3EMUnENKEsBSwWFcQ5jbnVtcHkKZHR5cGUKcQ9YAgAAAGY4cRBLAEsBh3ERUnESKEsDWAEAAAA8cRNOTk5K/////0r/////SwB0cRRiiUMoZRFjhboFhT+9872xlpuEP57zEYjjoIU/aMaPoa0shT/5QwDccFsdPnEVdHEWYlgEAAAAbWluX3EXaAhoCUsAhXEYaAuHcRlScRooSwFLBYVxG2gSiUMoUx0eZaT4w7/eR4UdSx7Ev+4pBZXYGcS/q7wtaLQMxL/prWvYynmEv3EcdHEdYlgJAAAAZGF0YV9taW5fcR5oCGgJSwCFcR9oC4dxIFJxIShLAUsFhXEiaBKJQyhmZmZmZmYuQD0K16NwPS9APQrXo3C9LUDNzMzMzEwuQAAAAACsUVZBcSN0cSRiWAkAAABkYXRhX21heF9xJWgIaAlLAIVxJmgLh3EnUnEoKEsBSwWFcSloEolDKEjhehSuJ1xAAAAAAADAXECkcD0K12NbQEjhehSu91tAAAAA1F6dwUFxKnRxK2JYCwAAAGRhdGFfcmFuZ2VfcSxoCGgJSwCFcS1oC4dxLlJxLyhLAUsFhXEwaBKJQyh7FK5H4VpYQLgehetR2FhAXI/C9SisV0CuR+F6FC5YQAAAAHy7cMFBcTF0cTJiWBAAAABfc2tsZWFybl92ZXJzaW9ucTNYBgAAADAuMjEuM3E0dWIu'],
+     "scalerYString": ['gANjc2tsZWFybi5wcmVwcm9jZXNzaW5nLmRhdGEKTWluTWF4U2NhbGVyCnEAKYFxAX1xAihYDQAAAGZlYXR1cmVfcmFuZ2VxA0sASwGGcQRYBAAAAGNvcHlxBYhYDwAAAG5fc2FtcGxlc19zZWVuX3EGTbARWAYAAABzY2FsZV9xB2NudW1weS5jb3JlLm11bHRpYXJyYXkKX3JlY29uc3RydWN0CnEIY251bXB5Cm5kYXJyYXkKcQlLAIVxCkMBYnELh3EMUnENKEsBSwGFcQ5jbnVtcHkKZHR5cGUKcQ9YAgAAAGY4cRBLAEsBh3ERUnESKEsDWAEAAAA8cRNOTk5K/////0r/////SwB0cRRiiUMInAIc7fRIoD9xFXRxFmJYBAAAAG1pbl9xF2gIaAlLAIVxGGgLh3EZUnEaKEsBSwGFcRtoEolDCHOJhdt3COc/cRx0cR1iWAkAAABkYXRhX21pbl9xHmgIaAlLAIVxH2gLh3EgUnEhKEsBSwGFcSJoEolDCOF6FK5HoTbAcSN0cSRiWAkAAABkYXRhX21heF9xJWgIaAlLAIVxJmgLh3EnUnEoKEsBSwGFcSloEolDCByF61G4niFAcSp0cStiWAsAAABkYXRhX3JhbmdlX3EsaAhoCUsAhXEtaAuHcS5ScS8oSwFLAYVxMGgSiUMIbz0K16NwP0BxMXRxMmJYEAAAAF9za2xlYXJuX3ZlcnNpb25xM1gGAAAAMC4yMS4zcTR1Yi4='],
+         "modelFile": 'exp/smodels.h5',
+         "loadModel": 1,
+         "modelName": 'gen.somemodels.SimpleModel1(50, 5, 1, **{})',
+       "train_count": 4528,
+    "normalizedFile": 'daily_MSFT_Norm_0.csv',
+  "unnormalizedFile": 'daily_MSFT_Orig_0.csv',
+"end": 0 
+}
+[END]
+
+#All Done in 0:00:00.277747 ***

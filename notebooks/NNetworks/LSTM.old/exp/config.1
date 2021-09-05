@@ -1,0 +1,45 @@
+#=>Processing 1/1 ../data/daily_MSFT.csv #unique: 6 tcoeff: 0.94 - standby
+WARNING: *** Non numeric columns => Index(['timestamp'], dtype='object')
+[START]
+{
+    "file"           : ['../data/daily_MSFT.csv'],
+    "nrowsXncols"    : [5033, 6]     , 
+    "number_Unique"  : 6            , 
+    "constantCols"   : [],   # No Signals
+    "#constantCols"  : 0,   # No Signals
+    "categorCols"    : [],   # Categorical Columns
+    "#categorCols"   : 0,   # Categorical Columns
+    "onehotECols"    : [],   # Cats > 2 and < Unique Values
+    "onehotEC_ext"   : [],   # Cats > 2 and < Unique Values
+    "#onehotECols"   : 0,   # Cats > 2 and < Unique Values
+    "binaryCols"     : [],   # Binary
+    "#binaryCols"    : 0,   # Binary
+    "notNumerics"    : ['timestamp'],
+    "timeCorrelation": 0.94,   # Time correlated
+    "timeCorrCols"   : [],   # Time correlated Columns
+    "#timeCorrCols"  : 0,    # Time correlated Columns
+    "excludePattern" : [] , #Exclude patterns
+    "includePattern" : [] , #include patterns
+    "dropColumns"    : [],
+    "diff_suffix"    : ['__diff1'],
+    "addDiffs"       : [],
+    "train_pct"      : .9,
+    "#numericCols"   : 5,  
+    "scaleInputs"    : ['open', 'high', 'low', 'close', 'volume'],  
+    "scaleOutputs"   : ['$scaleInputs'],  
+    "inputs"         : ['$binaryCols', '$scaleInputs', '$onehotECols'],
+    "outputs"        : ['$scaleOutputs'],
+#-----Copy this generated file and add customization
+    "tsParams"       : {"length": 50, "batch_size": 1, "stride": 1, "sampling_rate": 1},
+    "networkModel"   : ["NN1 -> Example"],
+    "lookahead"      : 5,
+    "nsteps"         : 1,
+    "scale"          : 1,
+    "scaler"         : ["sklearn.preprocessing.MinMaxScaler()"],
+    "scaler"         : ["sklearn.preprocessing.StandardScaler()"],
+    "scalerXString"  : [],
+    "scalerYString"  : []
+}
+[END]
+    
+#All Done in 0:00:00.064459 ***

@@ -1,0 +1,24 @@
+[START]
+{
+      "addDiffs"     : ['MSFT_open'],
+     "scaleInputs"   : ['MSFT_open', 'MSFT_high', 'MSFT_low', 'MSFT_close', 'MSFT_volume'],
+    "scaleOutputs"   : ['MSFT_open', 'MSFT_open___diff1'],
+    "scaleOutputs"   : ['MSFT_open___diff1'],
+            "inputs" : ['$binaryCols', '$scaleInputs', '$onehotEC_ext'],
+            "inputs" : ['$scaleInputs'],
+           "outputs" : ['$scaleOutputs'],
+
+
+      "scalerXString": [],
+      "scalerYString": [],
+      "scale"        : 1, 
+
+      "tsParams"     : {"length": 50, "batch_size": 1, "stride": 1, "sampling_rate": 1},
+      "lookahead"    : 5,
+      "nsteps"       : 1,
+      "modelFile"    : ["model.h5"]
+}
+[END]
+
+predictLength is how far to predict the 
+nstep is number of steps => please always make it 1, it makes no sense to predict any further
