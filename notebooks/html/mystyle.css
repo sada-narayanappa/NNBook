@@ -1,0 +1,26 @@
+div.prompt   { display:none; }
+div.header   { display:none; }
+div#header   { display:none !important; }
+div.notebook-container { border-left: 0px;}
+div#notebook-container { border-left: 0px;}
+@media print {
+    div.prompt_container   { display:none; }
+    #noprint{ display:none; }
+    div.code_cell {
+    }
+    .CCodeMirror {
+        font-family: monospace;
+        background-color: #cccccc
+    }
+    body {
+        background-color: lightgreen;
+    }
+    ddiv.code_cell {
+        border: 1px solid silver;
+        background-color: lightgreen;
+    }
+}
+
+@media screen{
+}
+
